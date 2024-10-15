@@ -19,13 +19,10 @@
       default = pkgs.${system}.stdenv.mkDerivation {
         name = "wallpapers";
         src = ./.;
-        buildPhase = ''
-          randomwallpaper=$(find ./Catppuccinified -type f | shuf -n 1)
-          cp "$randomwallpaper" $src/random.png
-        '';
         installPhase = ''
+          randomwallpaper=$(find ./Catppuccinified -type f | shuf -n 1)
           mkdir -p $out
-          mv $src/random.png $out/random.png
+          cp "$randomwallpaper" $out/random.png
         '';
       };
     });
