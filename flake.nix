@@ -20,7 +20,7 @@
         name = "wallpapers";
         src = ./.;
         installPhase = ''
-          randomwallpaper=$(find ./Catppuccinified -type f | shuf -n 1)
+          randomwallpaper=$(find . -name "*.png" -type f | shuf -n 1)
           mkdir -p $out
           cp "$randomwallpaper" $out/random.png
         '';
